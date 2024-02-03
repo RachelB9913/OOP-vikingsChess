@@ -18,7 +18,7 @@ public class Position {
     public void addpiece(ConcretePiece p){
         if(steppedIn.isEmpty()){
             this.steppedIn.add(p);
-            System.out.println("add one" + x + y);
+            //System.out.println("add one" + x + y);
         }
         else {
             boolean flag = false;
@@ -29,7 +29,7 @@ public class Position {
             }
             if (!flag) {
                 this.steppedIn.add(p);
-                System.out.println("add one" + x + y);
+                //System.out.println("add one" + x + y);
             }
 //        this.steppedIn.add(p);
 //        System.out.println("add one" + x + y);

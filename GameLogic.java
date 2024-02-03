@@ -107,7 +107,6 @@ public class GameLogic implements PlayableLogic {
      * this function is used mostly in the numOfPieces comparator
      */
     public int getNumPiecesPassed(Position p) {
-        //return numOfPiece[p.getX()][p.getY()];
         return p.getAllPieces();
     }
 
@@ -355,15 +354,15 @@ public class GameLogic implements PlayableLogic {
         }
         stars();
 
-        for(int i=0;i<11;i++){
-            for(int j=0;j<11;j++){
-                Position position = new Position(i,j);
-                //if(numOfPiece[i][j]>=2){
-                if(position.getAllPieces()>=2){
-                    System.out.println(toStringPos(position) + getNumPiecesPassed(position) + " pieces");
+        //section 4//
+        allPos.sort(numOfPiecesComp);
+        for(int i=0;i<allPos.size();i++){
+                //Position position = new Position(i,j);
+                if(allPos.get(i).getAllPieces()>=2){
+                    System.out.println(toStringPos(allPos.get(i)) + getNumPiecesPassed(allPos.get(i)) + " pieces");
                 }
             }
-        }
+
         stars();
     }
 
@@ -531,6 +530,7 @@ public class GameLogic implements PlayableLogic {
             for(int j=0;j<11;j++){
                 if(board[i][j]!=null){
                     Position pos = new Position(i,j);
+                    allPos.add(pos);
                     pos.addpiece(board[i][j]);
                 }
             }
